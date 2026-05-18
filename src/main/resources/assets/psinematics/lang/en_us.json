@@ -1,5 +1,11 @@
 {
-  "itemGroup.psinematics": "Psinematics",
-  "block.psinematics.example_block": "...",
-  "item.psinematics.example_item": "..?"
+  "psi.datatype.sub_level_access": "Construct",
+
+  "psinematics.spellerror.nullconstruct": "ERROR: Spell Construct target is non existent.",
+
+  "psinematics.spellpiece.current_sub_level": "Selector: Caster's Construct",
+  "psinematics.spellpiece.current_sub_level.desc": "Returns the construct that the caster is inside of",
+
+  "psinematics.spellpiece.locate_center_of_mass": "Operator: Locate Center of Mass",
+  "psinematics.spellpiece.locate_center_of_mass.desc": "Locates the center of mass of the target construct"
 }

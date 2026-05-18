@@ -4,6 +4,8 @@ import com.mojang.logging.LogUtils;
 import luna.psinematics.operators.ContainingSubLevelOp;
 import luna.psinematics.operators.LocateCenterOfMassOp;
 import luna.psinematics.selectors.CurrentSubLevelSelector;
+import luna.psinematics.tricks.BeginAssemblyTrick;
+import luna.psinematics.tricks.EndAssemblyTrick;
 import net.minecraft.client.resources.model.Material;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.InventoryMenu;
@@ -48,6 +50,10 @@ public class Psinematics{
 			SPELL_PIECES.register("locate_center_of_mass", () -> LocateCenterOfMassOp.class);
 	
 	// tricks
+	public static final DeferredHolder<Class<? extends SpellPiece>, Class<BeginAssemblyTrick>> BEGIN_ASSEMBLY =
+			SPELL_PIECES.register("begin_assembly", () -> BeginAssemblyTrick.class);
+	public static final DeferredHolder<Class<? extends SpellPiece>, Class<EndAssemblyTrick>> END_ASSEMBLY =
+			SPELL_PIECES.register("end_assembly", () -> EndAssemblyTrick.class);
 	
 	// collections
 	public static final DeferredHolder<Collection<Class<? extends SpellPiece>>, Collection<Class<? extends SpellPiece>>> CONSTRUCTS =
@@ -55,7 +61,9 @@ public class Psinematics{
 					() -> Arrays.asList(
 							CurrentSubLevelSelector.class,
 							ContainingSubLevelOp.class,
-							LocateCenterOfMassOp.class
+							LocateCenterOfMassOp.class,
+							BeginAssemblyTrick.class,
+							EndAssemblyTrick.class
 					));
 	
 	public Psinematics(IEventBus modEventBus, ModContainer modContainer){
@@ -80,6 +88,8 @@ public class Psinematics{
 				registerSpellMaterial(helper, "current_sub_level");
 				registerSpellMaterial(helper, "containing_sub_level");
 				registerSpellMaterial(helper, "locate_center_of_mass");
+				registerSpellMaterial(helper, "begin_assembly");
+				registerSpellMaterial(helper, "end_assembly");
 			});
 		}
 		

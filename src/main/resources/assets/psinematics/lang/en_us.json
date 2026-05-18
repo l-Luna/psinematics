@@ -2,6 +2,10 @@
   "psi.datatype.sub_level_access": "Construct",
 
   "psinematics.spellerror.nullconstruct": "ERROR: Spell Construct target is non existent.",
+  "psinematics.spellerror.assembly_already_begun": "ERROR: Assembly is already in progress.",
+  "psinematics.spellerror.assembly_not_begun": "ERROR: Assembly has not begun.",
+  "psinematics.spellerror.imbalanced_begin_end.begin": "Begin Assembly requires later End Assembly trick",
+  "psinematics.spellerror.imbalanced_begin_end.end": "End Assembly requires earlier Begin Assembly trick",
 
   "psinematics.spellpiece.current_sub_level": "Selector: Caster's Construct",
   "psinematics.spellpiece.current_sub_level.desc": "Returns the construct that the caster is inside of",
@@ -10,5 +14,11 @@
   "psinematics.spellpiece.containing_sub_level.desc": "Returns the construct that the target point is inside of",
 
   "psinematics.spellpiece.locate_center_of_mass": "Operator: Locate Center of Mass",
-  "psinematics.spellpiece.locate_center_of_mass.desc": "Locates the center of mass of the target construct"
+  "psinematics.spellpiece.locate_center_of_mass.desc": "Locates the center of mass of the target construct",
+
+  "psinematics.spellpiece.begin_assembly": "Trick: Begin Assembly",
+  "psinematics.spellpiece.begin_assembly.desc": "Begins creation of a new construct (via blockworks spells)",
+
+  "psinematics.spellpiece.end_assembly": "Trick: End Assembly",
+  "psinematics.spellpiece.end_assembly.desc": "Completes a constructed started by Begin Assembly"
 }

@@ -1,6 +1,7 @@
 package luna.psinematics;
 
 import com.mojang.logging.LogUtils;
+import luna.psinematics.operators.ContainingSubLevelOp;
 import luna.psinematics.operators.LocateCenterOfMassOp;
 import luna.psinematics.selectors.CurrentSubLevelSelector;
 import net.minecraft.client.resources.model.Material;
@@ -41,6 +42,8 @@ public class Psinematics{
 			SPELL_PIECES.register("current_sub_level", () -> CurrentSubLevelSelector.class);
 	
 	// operators
+	public static final DeferredHolder<Class<? extends SpellPiece>, Class<ContainingSubLevelOp>> CONTAINING_SUB_LEVEL =
+			SPELL_PIECES.register("containing_sub_level", () -> ContainingSubLevelOp.class);
 	public static final DeferredHolder<Class<? extends SpellPiece>, Class<LocateCenterOfMassOp>> LOCATE_CENTER_OF_MASS =
 			SPELL_PIECES.register("locate_center_of_mass", () -> LocateCenterOfMassOp.class);
 	
@@ -51,6 +54,7 @@ public class Psinematics{
 			ADVANCEMENT_GROUPS.register(LibPieceGroups.MEMORY_MANAGEMENT,
 					() -> Arrays.asList(
 							CurrentSubLevelSelector.class,
+							ContainingSubLevelOp.class,
 							LocateCenterOfMassOp.class
 					));
 	
@@ -73,8 +77,9 @@ public class Psinematics{
 		@SubscribeEvent
 		public static void register(RegisterEvent event){
 			event.register(ClientPsiAPI.SPELL_PIECE_MATERIAL, helper -> {
-				registerSpellMaterial(helper, "locate_center_of_mass");
 				registerSpellMaterial(helper, "current_sub_level");
+				registerSpellMaterial(helper, "containing_sub_level");
+				registerSpellMaterial(helper, "locate_center_of_mass");
 			});
 		}
 		

@@ -6,6 +6,9 @@
   "psinematics.spellpiece.current_sub_level": "Selector: Caster's Construct",
   "psinematics.spellpiece.current_sub_level.desc": "Returns the construct that the caster is inside of",
 
+  "psinematics.spellpiece.containing_sub_level": "Operator: Containing Construct",
+  "psinematics.spellpiece.containing_sub_level.desc": "Returns the construct that the target point is inside of",
+
   "psinematics.spellpiece.locate_center_of_mass": "Operator: Locate Center of Mass",
   "psinematics.spellpiece.locate_center_of_mass.desc": "Locates the center of mass of the target construct"
 }

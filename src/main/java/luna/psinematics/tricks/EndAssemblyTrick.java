@@ -8,6 +8,7 @@ public class EndAssemblyTrick extends PieceTrick{
 	
 	public EndAssemblyTrick(Spell spell){
 		super(spell);
+		setStatLabel(EnumSpellStat.PROJECTION, new StatLabel(0));
 	}
 	
 	public void addToMetadata(SpellMetadata meta) throws SpellCompilationException, ArithmeticException{

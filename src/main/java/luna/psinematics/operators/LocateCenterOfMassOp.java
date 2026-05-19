@@ -2,7 +2,6 @@ package luna.psinematics.operators;
 
 import dev.ryanhcode.sable.companion.SubLevelAccess;
 import dev.ryanhcode.sable.sublevel.ServerSubLevel;
-import dev.ryanhcode.sable.sublevel.SubLevel;
 import luna.psinematics.PhySpellHelper;
 import luna.psinematics.SubLevelParam;
 import org.joml.Vector3dc;
@@ -16,6 +15,7 @@ public class LocateCenterOfMassOp extends PieceOperator{
 	
 	public LocateCenterOfMassOp(Spell spell){
 		super(spell);
+		setStatLabel(EnumSpellStat.COMPLEXITY, new StatLabel(4));
 	}
 	
 	public Class<?> getEvaluationType(){

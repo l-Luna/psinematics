@@ -17,6 +17,6 @@ public class CurrentSubLevelSelector extends PieceSelector{
 	}
 	
 	public SubLevelAccess execute(SpellContext context){
-		return SableCompanion.INSTANCE.getTrackingSubLevel(context.focalPoint);
+		return SableCompanion.INSTANCE.getTrackingOrVehicleSubLevel(context.focalPoint);
 	}
 }

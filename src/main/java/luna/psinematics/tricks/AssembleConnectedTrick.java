@@ -53,6 +53,7 @@ public class AssembleConnectedTrick extends PieceTrick{
 			if(!context.isInRadius(Vector3.fromBlockPos(block)))
 				throw new SpellRuntimeException(SpellRuntimeException.OUTSIDE_RADIUS);
 		ServerSubLevel completed = SubLevelAssemblyHelper.assembleBlocks((ServerLevel)context.focalPoint.level(), position.toBlockPos(), result.blocks(), result.boundingBox());
+		completed.updateBoundingBox();
 		AssemblyContext.putCompletedAssembly(context, completed);
 		
 		return null;

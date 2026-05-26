@@ -49,6 +49,10 @@ public class AssemblyContext{
 		return ctx.customData.containsKey(ASSEMBLY_TAG) && ctx.customData.get(ASSEMBLY_TAG) instanceof AssemblyContext ac ? ac.subLevel : null;
 	}
 	
+	public static void putCompletedAssembly(SpellContext ctx, SubLevelAccess subLevel){
+		ctx.customData.put(COMPLETE_ASSEMBLY_TAG, subLevel);
+	}
+	
 	public static SubLevelAccess getCompletedAssembly(SpellContext ctx){
 		return ctx.customData.containsKey(COMPLETE_ASSEMBLY_TAG) && ctx.customData.get(COMPLETE_ASSEMBLY_TAG) instanceof SubLevelAccess sla ? sla : null;
 	}

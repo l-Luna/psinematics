@@ -5,6 +5,7 @@ import luna.psinematics.operators.LocateCenterOfMassOp;
 import luna.psinematics.selectors.CurrentAssemblySelector;
 import luna.psinematics.selectors.CurrentSubLevelSelector;
 import luna.psinematics.tricks.AddMomentumTrick;
+import luna.psinematics.tricks.AssembleConnectedTrick;
 import luna.psinematics.tricks.BeginAssemblyTrick;
 import luna.psinematics.tricks.EndAssemblyTrick;
 import net.minecraft.client.resources.model.Material;
@@ -30,8 +31,6 @@ import java.util.Map;
 public class Psinematics{
 	public static final String MODID = "psinematics";
 	
-//	private static ForceGroup PSIONIC_FORCE = new ForceGroup();
-	
 	private static final Map<String, Class<? extends SpellPiece>> PIECES = Map.of(
 			"current_sub_level", CurrentSubLevelSelector.class,
 			"current_assembly", CurrentAssemblySelector.class,
@@ -41,6 +40,7 @@ public class Psinematics{
 			
 			"begin_assembly", BeginAssemblyTrick.class,
 			"end_assembly", EndAssemblyTrick.class,
+			"assemble_connected", AssembleConnectedTrick.class,
 			
 			"add_momentum", AddMomentumTrick.class
 	);

@@ -4,10 +4,8 @@
   "package": "luna.psinematics.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "PieceTrickConjureBlockMixin",
-    "PieceTrickPlaceBlockMixin",
-    "PieceTrickPlaceInSequenceMixin",
-    "SpellContextMixin"
+    "SpellContextMixin",
+    "SpellPieceMixin"
   ],
   "client": [
   ],

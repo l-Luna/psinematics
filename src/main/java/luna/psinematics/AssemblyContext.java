@@ -38,7 +38,8 @@ public class AssemblyContext{
 			if(completed instanceof ServerSubLevel ssl){
 				ssl.updateBoundingBox();
 				// required for forces to be applied on the same tick
-				SubLevelContainer.getContainer(ssl.getLevel()).physicsSystem().getPipeline().physicsTick(1/20d);
+				if(ssl.getMassTracker().getCenterOfMass() != null)
+					SubLevelContainer.getContainer(ssl.getLevel()).physicsSystem().getPipeline().physicsTick(1 / 20d);
 			}
 			ctx.customData.put(COMPLETE_ASSEMBLY_TAG, completed);
 		}
@@ -47,6 +48,14 @@ public class AssemblyContext{
 	
 	public static SubLevelAccess getCurrentAssembly(SpellContext ctx){
 		return ctx.customData.containsKey(ASSEMBLY_TAG) && ctx.customData.get(ASSEMBLY_TAG) instanceof AssemblyContext ac ? ac.subLevel : null;
+	}
+	
+	// projects out from the global world, into the sublevel
+	public static BlockPos getCurrentAssemblyOffset(SpellContext ctx){
+		return ctx.customData.containsKey(ASSEMBLY_TAG)
+				&& ctx.customData.get(ASSEMBLY_TAG) instanceof AssemblyContext ac
+				&& ac.anchorLocal != null
+				? ac.anchorLocal.subtract(ac.anchorGlobal) : null;
 	}
 	
 	public static void putCompletedAssembly(SpellContext ctx, SubLevelAccess subLevel){
@@ -74,9 +83,8 @@ public class AssemblyContext{
 				ac.anchorLocal = start;
 				ac.subLevel = newConstruct;
 				return start;
-			}else{
-				return ac.anchorLocal.offset(pos.subtract(ac.anchorGlobal));
 			}
+			return pos.offset(ac.anchorLocal.subtract(ac.anchorGlobal));
 		}
 		return pos;
 	}

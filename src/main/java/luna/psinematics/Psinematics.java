@@ -6,7 +6,9 @@ import luna.psinematics.selectors.CurrentAssemblySelector;
 import luna.psinematics.selectors.CurrentSubLevelSelector;
 import luna.psinematics.tricks.*;
 import net.minecraft.client.resources.model.Material;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.inventory.InventoryMenu;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -43,6 +45,8 @@ public class Psinematics{
 			"add_momentum", AddMomentumTrick.class
 	);
 	
+	public static final TagKey<Class<? extends SpellPiece>> BLOCK_PLACEMENT_TRICKS = TagKey.create(PsiAPI.SPELL_PIECE_REGISTRY_TYPE_KEY, psinId("block_placement_tricks"));
+	
 	public Psinematics(IEventBus modEventBus, ModContainer modContainer){
 		modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
 		modEventBus.addListener(this::register);
@@ -58,6 +62,10 @@ public class Psinematics{
 	
 	public static ResourceLocation psinId(String path){
 		return ResourceLocation.fromNamespaceAndPath(MODID, path);
+	}
+	
+	public static <T> boolean isOf(T value, TagKey<T> tag, Registry<T> registry){
+		return registry.getHolder(registry.getId(value)).get().is(tag);
 	}
 	
 	@EventBusSubscriber(modid = MODID, value = Dist.CLIENT)

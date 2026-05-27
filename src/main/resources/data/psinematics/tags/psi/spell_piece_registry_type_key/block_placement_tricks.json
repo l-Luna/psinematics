@@ -1,0 +1,9 @@
+{
+  "values": [
+    "psi:trick_place_block",
+    "psi:trick_conjure_block",
+    "psi:trick_conjure_light",
+    "psi:trick_place_in_sequence",
+    "psi:trick_conjure_block_sequence"
+  ]
+}

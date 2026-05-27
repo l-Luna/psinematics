@@ -26,7 +26,9 @@
   "psinematics.spellpiece.end_assembly": "Trick: End Assembly",
   "psinematics.spellpiece.end_assembly.desc": "Completes a constructed started by Begin Assembly",
   "psinematics.spellpiece.assemble_connected": "Trick: Assemble Connected",
-  "psinematics.spellpiece.assemble_connected.desc": "Combines connected blocks into a Construct",
+  "psinematics.spellpiece.assemble_connected.desc": "Combines connected blocks into a construct",
+  "psinematics.spellpiece.disassemble": "Trick: Disassemble",
+  "psinematics.spellpiece.disassemble.desc": "Disassembles a construct into ordinary blocks",
 
   "psinematics.spellpiece.add_momentum": "Trick: Add Momentum",
   "psinematics.spellpiece.add_momentum.desc": "Applies momentum to a construct",

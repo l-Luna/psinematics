@@ -4,10 +4,7 @@ import luna.psinematics.operators.ContainingSubLevelOp;
 import luna.psinematics.operators.LocateCenterOfMassOp;
 import luna.psinematics.selectors.CurrentAssemblySelector;
 import luna.psinematics.selectors.CurrentSubLevelSelector;
-import luna.psinematics.tricks.AddMomentumTrick;
-import luna.psinematics.tricks.AssembleConnectedTrick;
-import luna.psinematics.tricks.BeginAssemblyTrick;
-import luna.psinematics.tricks.EndAssemblyTrick;
+import luna.psinematics.tricks.*;
 import net.minecraft.client.resources.model.Material;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.InventoryMenu;
@@ -41,6 +38,7 @@ public class Psinematics{
 			"begin_assembly", BeginAssemblyTrick.class,
 			"end_assembly", EndAssemblyTrick.class,
 			"assemble_connected", AssembleConnectedTrick.class,
+			"disassemble", DisassembleTrick.class,
 			
 			"add_momentum", AddMomentumTrick.class
 	);

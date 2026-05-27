@@ -20,6 +20,8 @@ public class AssembleConnectedTrick extends PieceTrick{
 	
 	public AssembleConnectedTrick(Spell spell){
 		super(spell);
+		setStatLabel(EnumSpellStat.POTENCY, new StatLabel(SpellParam.GENERIC_NAME_MAX, true).mul(15));
+		setStatLabel(EnumSpellStat.COST, new StatLabel(SpellParam.GENERIC_NAME_MAX, true).sub(1).parenthesize().mul(20).add(30));
 	}
 	
 	public void initParams(){
@@ -34,6 +36,9 @@ public class AssembleConnectedTrick extends PieceTrick{
 			throw new SpellCompilationException(SpellCompilationException.NON_POSITIVE_VALUE, x, y);
 		if(maxVal > 32)
 			throw new SpellCompilationException(SpellCompilationException.INVALID_PARAM);
+		
+		meta.addStat(EnumSpellStat.POTENCY, (int)(maxVal * 15));
+		meta.addStat(EnumSpellStat.COST, (int)((maxVal - 1) * 20 + 30));
 	}
 	
 	public Object execute(SpellContext context) throws SpellRuntimeException{

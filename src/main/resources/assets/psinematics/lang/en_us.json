@@ -33,5 +33,16 @@
   "psinematics.spellpiece.add_momentum": "Trick: Add Momentum",
   "psinematics.spellpiece.add_momentum.desc": "Applies momentum to a construct",
   "psinematics.spellpiece.add_angular_momentum": "Trick: Add Angular Momentum",
-  "psinematics.spellpiece.add_angular_momentum.desc": "Applies angular momentum to a construct"
+  "psinematics.spellpiece.add_angular_momentum.desc": "Applies angular momentum to a construct",
+
+  "psinematics.book.entry.tutorial.name": "Kinematics",
+  "psinematics.book.entry.tutorial.desc": "Spells can interact with blocks that have been given physics, referred to as Constructs.",
+  "psinematics.book.entry.tutorial.assemble_connected": "The simplest way to create a construct is by assembling contiguous blocks into one. This trick can only assemble a limited number of blocks, which the cost and potency scales with; if too many blocks are connected, the trick fails entirely.",
+  "psinematics.book.entry.tutorial.disassemble": "Conversely, constructs can be disassembled, turning them back into ordinary blocks. This also has a block limit; if you need to recover a large structure, consider breaking it into pieces first.",
+  "psinematics.book.entry.tutorial.current_assembly": "A spell that creates a construct can get ahold of the construct it just created. This selector must evaluate after a trick was executed to create one, and will evaluate to null otherwise.",
+  "psinematics.book.entry.tutorial.begin_end_assembly": "All ordinary block placement spells can be used to create constructs too, using $(piece)Trick: Begin Assembly$(0). Once executed, further block placement spells (such as $(piece)Trick: Place Block$(0) or $(piece)Trick: Conjure Block Sequence$(0)) will place them in the form of a new construct, aligned to but decoupled from the world grid. All placed blocks will be bound together in a single construct.$(p)To return to placing ordinary blocks, use $(piece)Trick: End Assembly$(0). This also allows creating multiple constructs (by alternating Begin/End), and allows $(piece)Trick: Completed Assembly$(0) to reference the newly created construct. The example spell on the right demonstrates this.",
+  "psinematics.book.entry.tutorial.containing_sub_level": "Spells may look for constructs anywhere in the world...",
+  "psinematics.book.entry.tutorial.current_sub_level": "...or ask for the caster's vessel. Unlike $(piece)Selector: Containing Construct$(0), this finds the construct the caster is riding on, even if they're only stood on top, or riding a creature standing on it, etc.",
+  "psinematics.book.entry.tutorial.locate_center_of_mass": "Most spells manipulating constructs will prefer to do so at their center of mass, to keep it stable. This is straightforward in a spell, though costs additional complexity for the convenience.",
+  "psinematics.book.entry.tutorial.add_momentum": "Unlike when manipulating entities, spells apply momentum to constructs rather than raw motion. Heavier constructs will be affected less."
 }

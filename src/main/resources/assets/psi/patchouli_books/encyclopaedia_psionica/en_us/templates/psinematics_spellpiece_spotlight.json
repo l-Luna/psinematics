@@ -1,0 +1,28 @@
+{
+  "components": [
+    {
+      "type": "patchouli:header",
+      "text": "#title",
+      "x": -1,
+      "y": -2,
+      "scale": 0.75
+    },
+    {
+      "type": "patchouli:separator",
+      "x": -1,
+      "y": 15
+    },
+    {
+      "type": "patchouli:custom",
+      "class": "vazkii.psi.client.patchouli.SpellPieceComponent",
+      "x": 47,
+      "y": 8,
+      "name": "#spellpiece"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "#text",
+      "y": 25
+    }
+  ]
+}

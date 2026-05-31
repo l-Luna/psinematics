@@ -1,0 +1,62 @@
+{
+  "name": "psinematics.book.entry.tutorial.name",
+  "category": "psi:basics",
+  "icon": "psinematics:textures/spell/add_momentum.png",
+  "pages": [
+    {
+      "type": "text",
+      "text": "psinematics.book.entry.tutorial.desc",
+      "title": "Kinematics"
+    },
+    {
+      "type": "psi:psinematics_spellpiece_spotlight",
+      "spellpiece": "psinematics:assemble_connected",
+      "title": "psinematics.spellpiece.assemble_connected",
+      "text": "psinematics.book.entry.tutorial.assemble_connected"
+    },
+    {
+      "type": "psi:psinematics_spellpiece_spotlight",
+      "spellpiece": "psinematics:disassemble",
+      "title": "psinematics.spellpiece.disassemble",
+      "text": "psinematics.book.entry.tutorial.disassemble"
+    },
+    {
+      "type": "psi:psinematics_spellpiece_spotlight",
+      "spellpiece": "psinematics:current_assembly",
+      "title": "psinematics.spellpiece.current_assembly",
+      "text": "psinematics.book.entry.tutorial.current_assembly"
+    },
+    {
+      "type": "text",
+      "text": "psinematics.book.entry.tutorial.begin_end_assembly"
+    },
+    {
+      "type": "psi:spell_grid",
+      "spell": "{modsRequired:[{modName:\"psinematics\",modVersion:\"1.0-SNAPSHOT\"},{modName:\"psi\",modVersion:\"1.21.1-108\"}],spellList:[{data:{key:\"psinematics:begin_assembly\"},x:2,y:2},{data:{key:\"psinematics:end_assembly\"},x:2,y:3},{data:{key:\"psi:trick_place_block\",params:{_direction:0,_position:4}},x:3,y:2},{data:{key:\"psinematics:current_assembly\"},x:3,y:3},{data:{key:\"psi:connector\",params:{_target:1}},x:3,y:4},{data:{key:\"psi:selector_caster\"},x:3,y:5},{data:{key:\"psi:operator_entity_position\",params:{_target:4}},x:4,y:1},{data:{key:\"psi:operator_vector_sum\",params:{_vector1:1,_vector2:4,_vector3:0}},x:4,y:2},{data:{key:\"psinematics:locate_center_of_mass\",params:{_target:3}},x:4,y:3},{data:{key:\"psinematics:add_momentum\",params:{_direction:2,_position:1,_power:4,_target:3}},x:4,y:4},{data:{key:\"psi:operator_entity_look\",params:{_target:3}},x:4,y:5},{data:{key:\"psi:selector_caster\"},x:5,y:1},{data:{key:\"psi:operator_entity_look\",params:{_target:1}},x:5,y:2},{data:{constantValue:\"9\",key:\"psi:constant_number\"},x:5,y:4}],spellName:\"Summon\",uuidLeast:-7193650418076230222L,uuidMost:6817296109516442426L,validSpell:1b}"
+    },
+    {
+      "type": "psi:psinematics_spellpiece_spotlight",
+      "spellpiece": "psinematics:containing_sub_level",
+      "title": "psinematics.spellpiece.containing_sub_level",
+      "text": "psinematics.book.entry.tutorial.containing_sub_level"
+    },
+    {
+      "type": "psi:psinematics_spellpiece_spotlight",
+      "spellpiece": "psinematics:current_sub_level",
+      "title": "psinematics.spellpiece.current_sub_level",
+      "text": "psinematics.book.entry.tutorial.current_sub_level"
+    },
+    {
+      "type": "psi:psinematics_spellpiece_spotlight",
+      "spellpiece": "psinematics:locate_center_of_mass",
+      "title": "psinematics.spellpiece.locate_center_of_mass",
+      "text": "psinematics.book.entry.tutorial.locate_center_of_mass"
+    },
+    {
+      "type": "psi:psinematics_spellpiece_spotlight",
+      "spellpiece": "psinematics:add_momentum",
+      "title": "psinematics.spellpiece.add_momentum",
+      "text": "psinematics.book.entry.tutorial.add_momentum"
+    }
+  ]
+}

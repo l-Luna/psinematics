@@ -2,7 +2,7 @@ plugins {
     id 'java-library'
     id 'maven-publish'
     id 'idea'
-    id 'net.neoforged.moddev' version '2.0.141'
+    id 'net.neoforged.moddev' version '2.0.147'
 }
 
 version = mod_version
@@ -11,36 +11,57 @@ group = mod_group_id
 repositories {
     mavenLocal()
 
-    exclusiveContent { // Sable
+    exclusiveContent {
         forRepository {
             maven {
-                url = "https://maven.ryanhcode.dev/releases"
-                name = "RyanHCode Maven"
+                name = 'RyanHCode Maven'
+                url = 'https://maven.ryanhcode.dev/releases'
             }
         }
         filter {
-            includeGroup("dev.ryanhcode.sable")
-            includeGroup("dev.ryanhcode.sable-companion")
+            includeGroup('dev.ryanhcode.sable') // Sable
+            includeGroup('dev.ryanhcode.sable-companion') // Sable Companion
         }
     }
 
-    maven {
-        name = 'BlameJared Maven (CrT / Bookshelf)'
-        url = 'https://maven.blamejared.com'
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = 'Fuzs Maven'
+                url = 'https://raw.githubusercontent.com/Fuzss/modresources/main/maven'
+            }
+        }
+        filter {
+            includeGroup('fuzs.forgeconfigapiport') // Forge Config API Port (Sable dependency)
+        }
     }
 
-    maven {
-        name = "Fuzs Mod Resources"
-        url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/"
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = 'BlameJared Maven'
+                url = 'https://maven.blamejared.com'
+            }
+        }
+        filter {
+            includeGroup('vazkii.patchouli') // Patchouli
+            includeGroup('foundry.veil') // Veil (Sable dependency)
+            includeGroup('io.github.ocelot') // GLSL Processor (Veil dependency)
+            includeGroup('gg.moonflower') // Molang Compiler (Veil dependency)
+        }
     }
 
-    maven { // Ponder
-        name = "Create Maven"
-        url = "https://maven.createmod.net"
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = 'Modrinth Maven'
+                url = 'https://api.modrinth.com/maven'
+            }
+        }
+        filter {
+            includeGroup('maven.modrinth') // Psi...
+        }
     }
-
-    maven { url = "https://maven.ithundxr.dev/hidden" } // Registrate
-    maven { url = "https://maven.ithundxr.dev/snapshots" } // Registrate
 }
 
 base {
@@ -97,8 +118,13 @@ neoForge {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
-    implementation("dev.ryanhcode.sable:sable-neoforge-${project.minecraft_version}:${project.sable_version}")
-    implementation("vazkii.psi:psi:${project.psi_version}")
+    implementation("dev.ryanhcode.sable:sable-neoforge-${project.minecraft_version}:${project.sable_version}") {
+        exclude group: 'com.simibubi.create'
+        exclude group: 'net.createmod.ponder'
+        exclude group: 'dev.engine-room.flywheel'
+        exclude group: 'com.tterrag.registrate'
+    }
+    implementation("maven.modrinth:psi:${project.psi_version}")
     implementation("vazkii.patchouli:Patchouli:${project.patchouli_version}")
 }
 

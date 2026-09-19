@@ -1,0 +1,15 @@
+{
+  "main": "psinematics:add_momentum",
+  "pieces": [
+    "psinematics:current_sub_level",
+    "psinematics:current_assembly",
+    "psinematics:containing_sub_level",
+    "psinematics:locate_center_of_mass",
+    "psinematics:block_mass",
+    "psinematics:sub_level_mass",
+    "psinematics:begin_assembly",
+    "psinematics:end_assembly",
+    "psinematics:assemble_connected",
+    "psinematics:disassemble"
+  ]
+}

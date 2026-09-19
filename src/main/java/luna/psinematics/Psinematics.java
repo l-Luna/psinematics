@@ -24,8 +24,8 @@ import net.neoforged.neoforge.registries.RegisterEvent;
 import vazkii.psi.api.ClientPsiAPI;
 import vazkii.psi.api.PsiAPI;
 import vazkii.psi.api.spell.SpellPiece;
+import vazkii.psi.api.spell.SpellPieceType;
 
-import java.util.ArrayList;
 import java.util.Map;
 
 @Mod(Psinematics.MODID)
@@ -49,7 +49,7 @@ public class Psinematics{
 			Map.entry("add_momentum", AddMomentumTrick.class)
 	);
 	
-	public static final TagKey<Class<? extends SpellPiece>> BLOCK_PLACEMENT_TRICKS = TagKey.create(PsiAPI.SPELL_PIECE_REGISTRY_TYPE_KEY, psinId("block_placement_tricks"));
+	public static final TagKey<SpellPieceType> BLOCK_PLACEMENT_TRICKS = TagKey.create(PsiAPI.SPELL_PIECE_REGISTRY_TYPE_KEY, psinId("block_placement_tricks"));
 	
 	public Psinematics(IEventBus modEventBus, ModContainer modContainer){
 		modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
@@ -59,17 +59,15 @@ public class Psinematics{
 	@SubscribeEvent
 	public void register(RegisterEvent event){
 		event.register(PsiAPI.SPELL_PIECE_REGISTRY_TYPE_KEY, helper ->
-				PIECES.forEach((id, clazz) -> helper.register(psinId(id), clazz)));
-		event.register(PsiAPI.ADVANCEMENT_GROUP_REGISTRY_KEY, helper ->
-				helper.register(psinId("constructs"), new ArrayList<>(PIECES.values())));
+				PIECES.forEach((id, clazz) -> helper.register(psinId(id), SpellPieceType.ofClass(clazz))));
 	}
 	
 	public static ResourceLocation psinId(String path){
 		return ResourceLocation.fromNamespaceAndPath(MODID, path);
 	}
 	
-	public static <T> boolean isOf(T value, TagKey<T> tag, Registry<T> registry){
-		return registry.getHolder(registry.getId(value)).get().is(tag);
+	public static <T> boolean isOf(ResourceLocation id, TagKey<T> tag, Registry<T> registry){
+		return registry.getHolder(registry.getId(id)).orElseThrow().is(tag);
 	}
 	
 	@EventBusSubscriber(modid = MODID, value = Dist.CLIENT)
